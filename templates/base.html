@@ -1,0 +1,34 @@
+{% load static %}<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Democracy Club: EU regulation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{% static "styles.css" %}">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <img src="{% static "logo-labs.png" %}" alt="Democracy Club Labs"/>
+                <h1>EU Regulations API</h1>
+            </div>
+        </header>
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID.
+            {# TODO #}
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+        -->
+    </body>
+</html>
+
+
+

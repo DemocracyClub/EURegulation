@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+    <h2>About this project</h2>
+    <p>This project is designed to help people who want to make tools and reports
+        about the EU legislation that will no longer apply to the UK after Brexit</p>
+
+
+
+    <h3>The data</h3>
+    <p>This site contains the EU regulations, as extracted from
+    <a href="http://publications.europa.eu">http://publications.europa.eu</a></p>
+    <p>Each regulation contains</p>
+    <ul>
+        <li>The title</p>
+        <li>Identifiers (URI, 'CELEX' number)</p>
+        <li>A year</p>
+        <li>Subjects</p>
+        <li>Keywords</p>
+        <li>The regulation as HTML and plain text</p>
+        <li>Meta data as published by publications.europa.eu</p>
+    </ul>
+
+    <h3>Reuse</h3>
+    <p>You are encouraged to use this API in your own projects.</p>
+    <p>If your project adds to the data in some way (by adding metadata or
+         grouping regulations for example) then you are strongly encouraged to
+         a)tell us about it and b) allow us to fold your dataset back in to
+         this one (we'll add it to the API).</p>
+    <p>This in turn will help others to build on all the datasets linked to the regulations.</p>
+
+
+
+
+</section>
+
+{% endblock content %}

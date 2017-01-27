@@ -1,0 +1,9 @@
+/ignore
+*.sqlite3
+.DS_Store
+*.zip
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+/docs/
