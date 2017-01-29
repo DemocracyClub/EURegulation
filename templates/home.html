@@ -31,6 +31,29 @@
          this one (we'll add it to the API).</p>
     <p>This in turn will help others to build on all the datasets linked to the regulations.</p>
 
+    <h3>The API</h3>
+    <p>Firstly, this is a new project and the API isn't going to be very stable.</p>
+    <p>If you want to use it, please go ahead, but also
+        <a href="https://democracyclub.org.uk/contact/">get in touch</a> and we'll
+        add you to our Slack where you can chat about ideas etc.</p>
+    <p><strong>The API lives at <a href="{% url "api-root"%}">{% url "api-root"%}</a>.</strong></p>
+    <p>It currently has two endpoints:</p>
+    <ul>
+        <li><code>/regulation/</code></li>
+        <li><code>/subjects/</code></li>
+    </ul>
+
+    <h4><code>/regulation/</code></h4>
+    <p>Lists each regulation with the publications.europa.eu UUID as the primary key.</p>
+    <p>You can filter by <code>celex_number</code>, <code>number</code>,
+        <code>year</code> and <code>keyword</code> using GET parameters, e.g.</p>
+    <p><code>/regulation/?year=2003&amp;keyword=wine</code></p>
+
+    <h4><code>/regulation/[UUID]/</code></h4>
+    <p>A single regulation, with ID and meta data, but no text</p>
+
+    <h4><code>/regulation/[UUID]/[html|text]</code></h4>
+    <p>The HTML or plain text of the regulation. Not that the text version is derived from the HTML.</p>
 
 
 
