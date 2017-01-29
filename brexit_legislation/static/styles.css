@@ -8,6 +8,7 @@ html {
   line-height: 1.31579;
   -webkit-font-smoothing: antialiased;
   font-size: calc(112.5% + 0.3vw);
+  padding-bottom:4em;
 }
 
 * {
