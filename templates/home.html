@@ -55,6 +55,32 @@
     <h4><code>/regulation/[UUID]/[html|text]</code></h4>
     <p>The HTML or plain text of the regulation. Not that the text version is derived from the HTML.</p>
 
+    <h3>Raw data</h3>
+    <p>If the API isn't helpful, you can down load the data that powers this site.</p>
+
+    <h4><a href="/downloads/eu_regs_tmp.psql">Django DB Dump</a></h4>
+    <p>The PostgreSQL DB dump that runs this site. Import using <code>pg_restore --no-acl -d eu_regulation [path/to/]eu_regs_tmp.psql</code></p>
+
+    <h4><a href="/downloads/docs.zip">Documents</a></h4>
+    <p>This is a zip file containing each document in HTML format.</p>
+
+    <h4><a href="https://github.com/DemocracyClub/EURegulation/raw/master/eu-legislation-subjects.csv">
+        Legislation Subjects</a></h4>
+    <p>A CSV file containing the subjects, URI and some metadata for each regulation (used to scrape the docs file above)</p>
+    <p>The headers are:</p>
+    <ul>
+        <li><code>"REG_CELLAR_ID"</code></li>
+        <li><code>"REG_URI"</code></li>
+        <li><code>"REG_CELEX_NO"</code></li>
+        <li><code>"REG_NUMBER"</code></li>
+        <li><code>"REG_YEAR"</code></li>
+        <li><code>"REG_SUBJECT"</code></li>
+        <li><code>"REG_TITLE"</code></li>
+    </ul>
+
+    <h4><a href="https://github.com/DemocracyClub/EURegulation/raw/master/eu-legislation-subjects.sparql">
+        SPARQL</a></h4>
+    <p>The SPARQL used to extract the subjects from publications.europa.eu</p>
 
 
 </section>

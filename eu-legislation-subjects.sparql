@@ -1,0 +1,38 @@
+prefix cdm: <http://publications.europa.eu/ontology/cdm#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+
+select distinct ?REG_CELLAR_ID ?REG_URI ?REG_CELEX_NO ?REG_NUMBER ?REG_YEAR ?REG_SUBJECT ?REG_TITLE
+where
+{
+
+?REG_CELLAR_ID ?type ?y ;
+   	cdm:work_is_about_concept_eurovoc ?z ;
+  	cdm:resource_legal_in-force	"true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+
+FILTER (?y IN (cdm:regulation, cdm:regulation_delegated, cdm:regulation_implementing,
+<http://publications.europa.eu/resource/authority/fd_030/REG> ,
+<http://publications.europa.eu/resource/authority/fd_030/REGL> ,
+<http://publications.europa.eu/resource/authority/fd_030/REPH> ,
+<http://publications.europa.eu/resource/authority/resource-type/REG> ,
+<http://publications.europa.eu/resource/authority/resource-type/REG_DEL> ,
+<http://publications.europa.eu/resource/authority/resource-type/REG_FINANC> ,
+<http://publications.europa.eu/resource/authority/resource-type/REG_IMPL>))
+
+?z skos:inScheme ?a .
+?a <http://eurovoc.europa.eu/schema#domain> ?s .
+?s skos:prefLabel ?REG_SUBJECT .
+
+FILTER (langMatches(lang(?REG_SUBJECT), "en"))
+
+OPTIONAL { ?REG_CELLAR_ID cdm:resource_legal_eli ?REG_URI .}
+OPTIONAL { ?REG_CELLAR_ID cdm:resource_legal_id_celex ?REG_CELEX_NO .}
+OPTIONAL { ?REG_CELLAR_ID cdm:resource_legal_number_natural ?REG_NUMBER .}
+OPTIONAL { ?REG_CELLAR_ID cdm:resource_legal_year ?REG_YEAR .}
+OPTIONAL { ?exp cdm:expression_belongs_to_work ?REG_CELLAR_ID ;
+                cdm:expression_title ?REG_TITLE ;
+                cdm:expression_uses_language
+                <http://publications.europa.eu/resource/authority/language/ENG> .
+	}
+}
