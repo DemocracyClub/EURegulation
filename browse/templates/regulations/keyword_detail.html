@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <h2>Keyword: {{ object.keyword|title }}</h2>
+
+    <p>There are <strong>{{ object.regulation_set.count }} regulations</strong>
+        with the keyword "{{ object.keyword|title }}"</p>
+    <p>This is the breakdown per year:</p>
+    <ul>
+      {% for year in object.regulation_by_year %}
+      <li><strong>{{ year.year }}</strong>: {{ year.total }}</li>
+
+      {% endfor %}
+    </ul>
+
+</section>
+
+
+<section class="regulation_table">
+    <h2>Regulations</h2>
+    <table>
+        <thead>
+            <th>Number</th>
+            <th>Title</th>
+        </thead>
+        <tbody>
+        {% for object in object.regulation_set.all %}
+            <tr>
+                <td><a href="{{ object.get_absolute_url }}">{{ object.celex_number }}</a></td>
+                <td>{{ object.clean_title }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+</section>
+{% endblock content %}

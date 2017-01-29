@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="regulation_table">
+
+    <h2>{{ view.kwargs.year }}</h2>
+
+    <table>
+        <thead>
+            <th>Number</th>
+            <th>Title</th>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td><a href="{{ object.get_absolute_url }}">{{ object.celex_number }}</a></td>
+                <td>{{ object.clean_title }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</section>
+{% endblock content %}

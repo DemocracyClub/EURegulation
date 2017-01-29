@@ -28,6 +28,26 @@ body > header {
     max-width:80%;
 }
 
+body > nav {
+    margin:0 auto;
+    max-width:80%;
+}
+
+body > nav ul {
+    margin:0;
+    padding:0;
+}
+
+body > nav ul li {
+    list-style-type:none;
+    display:inline-block;
+    margin:0 1em;
+}
+
+body > nav ul li:first-child {
+    margin-left:0;
+}
+
 body > header img {
     max-width:100%;
     padding-top:0.5em;
@@ -37,4 +57,34 @@ body > header img {
 body > main > section {
     margin:0 auto;
     max-width:80%;
+}
+
+
+body > main > section + section {
+    margin-top:2em;
+}
+
+.regulation_table tr {
+    vertical-align:top;
+}
+.regulation_table  td {
+    padding-bottom:1em;
+}
+
+section.regulation_meta {
+    background-color:#EEE;
+    padding:1em;
+    box-sizing: border-box;
+    margin-bottom:2em;
+}
+
+dl {
+    font-size:0.8em;
+}
+dt {
+    font-weight:bold;
+}
+dd {
+    margin-left:1em;
+    font-style:italic;
 }

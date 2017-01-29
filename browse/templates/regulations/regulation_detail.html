@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="regulation_meta">
+<h2>{{ object.clean_title }}</h2>
+<small>(Full title: {{ object.title }})</small>
+<dl>
+    <dt>Year</dt>
+    <dd>{{ object.year }}</dd>
+
+    <dt>Number</dt>
+    <dd>{{ object.number }}</dd>
+
+    <dt>CELEX Number</dt>
+    <dd>{{ object.celex_number }}</dd>
+
+    {% if object.keywords.all %}
+    <dt>Keywords</dt>
+    {% for keyword in object.keywords.all %}
+        <dd><a href="{{ keyword.get_absolute_url }}">{{ keyword }}</a></dd>
+    {% endfor %}
+    {% endif %}
+
+    {% if object.subjects.all %}
+    <dt>Subjects</dt>
+    {% for subject in object.subjects.all %}
+        <dd>{{ subject }}</dd>
+    {% endfor %}
+    {% endif %}
+</dl>
+<p><a href="{{ object.uri }}">View original</a></p>
+
+</section>
+
+<section class="regulation_html">
+    {% if object.html_text_only %}
+    {{ object.html_text_only|safe }}
+    {% else %}
+    {{ object.body_html|safe }}
+    {% endif %}
+
+</section>
+
+{% endblock content %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'regulations',
     'django_extensions',
     'rest_framework',
+    'browse',
 )
 
 MIDDLEWARE_CLASSES = (

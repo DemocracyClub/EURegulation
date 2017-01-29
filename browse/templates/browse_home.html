@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <h2>Regulation by year</h2>
+    <table>
+        <thead>
+            <th>Year</th>
+            <th>Number of regulations</th>
+        </thead>
+        <tbody>
+            {% for i in regulation.years %}
+            <tr>
+                <td><a href="{% url 'regulation_year_view' i.year %}">{{ i.year }}</a></td>
+                <td>{{ i.total }}</td>
+            </tr>
+            {% endfor %}
+            <tr></tr>
+        </tbody>
+    </table>
+</section>
+
+{% endblock content %}

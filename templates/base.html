@@ -15,6 +15,13 @@
                 <h1>EU Regulations API</h1>
             </div>
         </header>
+        <nav>
+            <ul>
+                <li><a href="{% url "home" %}">Home</a></li>
+                <li><a href="{% url "api-root" %}">API</a></li>
+                <li><a href="{% url "browse_home_view" %}">Browse</a></li>
+            </ul>
+        </nav>
         <main>
             {% block content %}{% endblock content %}
         </main>
