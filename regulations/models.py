@@ -49,6 +49,7 @@ class Regulation(models.Model):
         title = re.sub(r"[0-9]+/[0-9]+", '', title).strip()
         title = re.sub(r"of [0-9]+ [A-Za-z]+ [0-9]+", '', title).strip()
         title = re.sub(r"^amending", '', title).strip()
+        title = re.sub(r"^of the Commission", '', title).strip()
 
         title = re.sub(r"^for the [0-9]+[rd|th]+ time", '', title).strip()
 
