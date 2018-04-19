@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load more_like_this %}
 
 {% block content %}
 <section class="regulation_meta">
@@ -40,6 +40,17 @@
     {{ object.body_html|safe }}
     {% endif %}
 
+</section>
+
+
+<section>
+  <h2>Related</h2>
+  {% more_like_this object as related_content limit 5  %}
+  <ul>
+  {% for result in related_content %}
+    <li><a href="{{ result.object.get_absolute_url }}">{{ result.title }}</a></li>
+  {% endfor %}
+  </ul>
 </section>
 
 {% endblock content %}

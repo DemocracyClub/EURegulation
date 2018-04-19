@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     'django_extensions',
     'rest_framework',
     'browse',
+    'haystack',
+    'search',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -120,8 +122,18 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 100
 }
 
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+        'URL': 'http://localhost',
+        'INDEX_NAME': 'eu-regulations',
+        'TIMEOUT': 100,
+    },
+}
+
 # .local.py overrides all the common settings.
 try:
     from .local import *  # noqa
 except ImportError:
     pass
+

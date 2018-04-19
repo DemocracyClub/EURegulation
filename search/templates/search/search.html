@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<section>
+  <form method=post>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type=submit>Search</button>
+  </form>
+</section>
+{% if results %}
+<section>
+{% for result in results.hits.hits %}
+  <div class="card">
+    <h4>
+      <a href="{{ result.model.get_absolute_url }}">
+        {{ result.model.clean_title }}
+      </a>
+    </h4>
+    <p>{{ result.highlight.text.0|safe }}</p>
+    <a href="{{ result.model.get_absolute_url }}">Full regulation</a>
+  </div>
+{% endfor %}
+</section>
+{% endif %}
+
+{% endblock content %}
