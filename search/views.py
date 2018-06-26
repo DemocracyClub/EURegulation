@@ -1,9 +1,12 @@
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 from .forms import SearchByDocumentForm
 from .more_like_text_helper import more_like_text
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class SearchView(TemplateView):
     template_name = "search/search.html"
 

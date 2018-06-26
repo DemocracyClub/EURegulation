@@ -1,0 +1,33 @@
+{
+    "prod": {
+        "domain": "eu-regulation.labs.democracyclub.org.uk",
+        "aws_region": "eu-west-1",
+        "django_settings": "brexit_legislation.settings",
+        "profile_name": "dc",
+        "project_name": "eu_regulation",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-9pm0huf66",
+        "exclude": [
+            "*.csv",
+            "*.gz",
+            "*.log",
+            "*.pyc",
+            "*.rar",
+            "*.svg",
+            "*.sqlite3",
+            "babel",
+            "boto3*",
+            "botocore*",
+            "bower_components",
+            "faker",
+            "foundation-sites"
+            "IPython",
+            "local.py",
+            "pygments",
+            "sphinx",
+            "static_files",
+            "whoosh_index",
+            "__pycache__",
+        ]
+    }
+}

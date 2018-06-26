@@ -69,6 +69,14 @@ class Regulation(models.Model):
         soup = BeautifulSoup(self.body_html, "html5lib")
         return soup.find(id="TexteOnly")
 
+    def text_for_search_index(self):
+        text = ""
+        for summary in self.summaries.all():
+            soup = soup = BeautifulSoup(summary.summary, "html5lib")
+            text = text + " " + soup.get_text()
+        text = text + " " + self.body_text
+        return " ".join(text.split(" ")[:2000])
+
 
 class Summary(models.Model):
     uri = models.CharField(blank=True, max_length=1000)

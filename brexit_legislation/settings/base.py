@@ -12,8 +12,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from os.path import join, abspath, dirname
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+root = lambda *x: join(abspath(BASE_DIR), *x)
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,6 +45,7 @@ INSTALLED_APPS = (
     'browse',
     'haystack',
     'search',
+    'django_filters'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,15 +128,18 @@ REST_FRAMEWORK = {
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
-        'URL': 'http://localhost',
+        'URL': 'https://search-eu-regulation-lbekhmwifbj25rlbk2hgyqg5qy.eu-west-2.es.amazonaws.com',
         'INDEX_NAME': 'eu-regulations',
-        'TIMEOUT': 100,
+        'TIMEOUT': 2,
     },
 }
 
 # .local.py overrides all the common settings.
+import os
 try:
-    from .local import *  # noqa
+    if os.environ.get('FRAMEWORK', None) == 'Zappa':
+        from .zappa import *  # noqa
+    else:
+        from .local import *  # noqa
 except ImportError:
     pass
-

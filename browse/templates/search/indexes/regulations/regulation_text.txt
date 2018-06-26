@@ -1,1 +1,1 @@
-{{ object.body_text }}
+{{ object.text_for_search_index }}
