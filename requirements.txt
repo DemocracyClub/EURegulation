@@ -1,7 +1,7 @@
 beautifulsoup4==4.5.3
 csvkit==1.0.1
 csvtools==0.5.1
-Django==1.11.8
+Django==2.2.24
 django-extensions==1.7.5
 django-filter==1.1.0
 django-haystack==2.7.0
